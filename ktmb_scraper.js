@@ -40,8 +40,8 @@ async function sendTelegram(message) {
 
   // ▪ Select origin & destination
   await page.waitForSelector("#FromStationId");
-  await page.select("#FromStationId", "19100"); // KL Sentral
-  await page.select("#ToStationId", "42400");   // Gurun
+  await page.select("#FromStationId", "36000"); // Kulai
+  await page.select("#ToStationId", "20400");   // kajang
 
   // ▪ Open date picker
   await page.waitForSelector("#OnwardDate");
@@ -56,7 +56,7 @@ async function sendTelegram(message) {
 
   // ▪ Select month = 2 (March, but UI is zero-indexed)
   await page.waitForSelector(".lightpick__select-months");
-  await page.select(".lightpick__select-months", "2");
+  await page.select(".lightpick__select-months", "9");
 
   // ▪ Pick date 24
   const daySelector =
@@ -67,7 +67,7 @@ async function sendTelegram(message) {
   const days = await page.$$(daySelector);
   for (const d of days) {
     const text = await page.evaluate((el) => el.textContent, d);
-    if (text.trim() === "24") {
+    if (text.trim() === "8") {
       await d.click();
       break;
     }
