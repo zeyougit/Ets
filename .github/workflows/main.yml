@@ -1,8 +1,8 @@
 name: KTMB Auto Scraper
 
 on:
-  schedule:
-    - cron: "*/20 * * * *"   # every 30 minutes
+  #schedule:
+  #  - cron: "*/20 * * * *"   # every 30 minutes
   workflow_dispatch:
 
 jobs:
